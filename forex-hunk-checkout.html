@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Enroll — Forex Hunk</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KPGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxMDAiIHkyPSIxMDAiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzNGRTBEMCIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI0E4NkJGRiIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPgo8cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgcng9IjI0IiBmaWxsPSIjMDgwODBCIi8+Cjx0ZXh0IHg9IjUwIiB5PSI3MCIgZm9udC1mYW1pbHk9IkFyaWFsLCBIZWx2ZXRpY2EsIHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI5MDAiIGZvbnQtc2l6ZT0iNTYiIGZpbGw9InVybCgjZykiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkY8L3RleHQ+CjxjaXJjbGUgY3g9IjgwIiBjeT0iNzgiIHI9IjkiIGZpbGw9IiNDNkZGNEQiLz4KPC9zdmc+">
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1631589648326888');
+fbq('track', 'PageView');
+fbq('track', 'InitiateCheckout', {value: 4999, currency: 'PKR'});
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1631589648326888&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800;900&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#08080B; --bg-2:#101014; --bg-3:#15151B;
+    --cyan:#3FE0D0; --violet:#A86BFF; --lime:#C6FF4D; --red:#FF5C6A;
+    --white:#F3F4F6; --muted:#8A8F9C; --line:rgba(255,255,255,0.10);
+    --display:'Archivo', sans-serif; --mono:'Space Mono', monospace; --body:'Inter', sans-serif; --mono-num:'JetBrains Mono', monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+  body{background:var(--bg);color:var(--white);font-family:var(--body);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 24px;}
+  ::selection{background:var(--lime);color:#08080B;}
+  @media (prefers-reduced-motion: reduce){*{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important;}}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
+  @keyframes badgePulse{0%,100%{box-shadow:0 0 0 0 rgba(198,255,77,0.45);}50%{box-shadow:0 0 0 6px rgba(198,255,77,0);}}
+  @keyframes tickerScroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+  .reveal-in{animation:fadeUp .5s ease both;}
+
+  /* ---- Ticker ---- */
+  .ticker-bar{position:relative;overflow:hidden;background:var(--bg-2);border-bottom:1px solid var(--line);white-space:nowrap;-webkit-mask-image:linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);mask-image:linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);}
+  .ticker-track{display:inline-flex;gap:34px;padding:9px 0;animation:tickerScroll 32s linear infinite;width:max-content;}
+  .ticker-track .pair{font-family:var(--mono);font-size:11px;color:var(--muted);display:inline-flex;align-items:center;gap:6px;letter-spacing:0.02em;}
+  .ticker-track .pair b{color:var(--white);font-weight:700;}
+  .ticker-track .pair .up{color:var(--lime);}
+  .ticker-track .pair .down{color:var(--red);}
+
+  header{position:sticky;top:0;z-index:50;background:rgba(8,8,11,0.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
+  nav{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;max-width:1100px;margin:0 auto;}
+  .logo{font-family:var(--display);font-weight:900;font-size:20px;display:flex;align-items:center;gap:8px;transition:opacity .15s ease;}
+  .logo:hover{opacity:0.8;}
+  .logo .dot{width:9px;height:9px;background:var(--lime);border-radius:50%;box-shadow:0 0 10px var(--lime);}
+  .back-link{font-family:var(--mono);font-size:12.5px;color:var(--muted);display:flex;align-items:center;gap:6px;}
+  .back-link:hover{color:var(--white);}
+  @media(max-width:380px){nav{padding:14px 16px;}.logo{font-size:16px;}}
+
+  .page-head{position:relative;padding:52px 24px 44px;text-align:center;overflow:hidden;border-bottom:1px solid var(--line);background-image:radial-gradient(rgba(255,255,255,0.055) 1px, transparent 1px);background-size:20px 20px;}
+  .glow1{position:absolute;top:-160px;left:-100px;width:480px;height:480px;background:radial-gradient(circle, rgba(63,224,208,0.18) 0%, transparent 70%);pointer-events:none;}
+  .glow2{position:absolute;bottom:-200px;right:-120px;width:520px;height:520px;background:radial-gradient(circle, rgba(168,107,255,0.16) 0%, transparent 70%);pointer-events:none;}
+  .page-head-frame{position:relative;display:inline-block;padding:30px 44px;}
+  .corner{position:absolute;width:20px;height:20px;border-color:var(--cyan);opacity:0.55;pointer-events:none;}
+  .corner.tl{top:0;left:0;border-top:2px solid;border-left:2px solid;}
+  .corner.tr{top:0;right:0;border-top:2px solid;border-right:2px solid;}
+  .corner.bl{bottom:0;left:0;border-bottom:2px solid;border-left:2px solid;}
+  .corner.br{bottom:0;right:0;border-bottom:2px solid;border-right:2px solid;}
+  @media(max-width:480px){.page-head-frame{padding:24px 20px;}.corner{width:14px;height:14px;}}
+  .page-head .eyebrow{position:relative;font-family:var(--mono);font-size:12px;color:var(--lime);letter-spacing:0.08em;text-transform:uppercase;font-weight:700;display:inline-flex;align-items:center;gap:8px;margin-bottom:20px;border:1px solid rgba(198,255,77,0.3);padding:7px 16px;border-radius:20px;animation:badgePulse 2.6s ease-in-out infinite;}
+  .page-head .eyebrow::before{content:'';width:6px;height:6px;background:var(--lime);border-radius:50%;flex-shrink:0;}
+  .page-head h1{position:relative;font-family:var(--display);font-weight:700;font-size:clamp(24px,6vw,42px);line-height:1.22;letter-spacing:-0.01em;margin-bottom:14px;}
+  .page-head h1 .grad{background:linear-gradient(135deg, var(--cyan), var(--violet));-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .page-head p{position:relative;color:var(--muted);font-size:clamp(13.5px,3.6vw,15.5px);max-width:520px;margin:0 auto;padding:0 4px;}
+  @media(max-width:480px){.page-head{padding:36px 18px 32px;}}
+
+  main{padding:56px 24px 90px;}
+  main.light-zone{background:#EDEFF2;color:#14161B;}
+  @media(max-width:480px){main{padding:32px 16px 90px;}}
+  .checkout-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:40px;align-items:start;}
+  @media(max-width:1000px){.checkout-grid{grid-template-columns:1fr 1fr;gap:26px;}}
+  @media(max-width:900px){.checkout-grid{grid-template-columns:1fr;gap:22px;}}
+
+  /* ---- Order summary ---- */
+  .order-card{background:var(--bg-2);border:1px solid var(--line);border-radius:16px;padding:28px;position:sticky;top:88px;overflow:hidden;}
+  .order-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg, var(--cyan), var(--violet));}
+  @media(max-width:900px){.order-card{position:static;padding:24px 22px;}}
+  @media(max-width:480px){.order-card{padding:20px 18px;border-radius:14px;}}
+  .order-card .badge{display:inline-block;background:var(--lime);color:#08080B;font-family:var(--display);font-size:10.5px;font-weight:800;padding:5px 12px;border-radius:16px;margin-bottom:16px;}
+  .order-card h3{font-family:var(--display);font-size:clamp(17px,4.2vw,19px);font-weight:800;margin-bottom:6px;}
+  .order-card .sub{font-family:var(--mono);font-size:11.5px;color:var(--muted);margin-bottom:22px;letter-spacing:0.02em;}
+  .order-line{display:flex;justify-content:space-between;padding:12px 0;border-top:1px solid var(--line);font-size:13.5px;gap:10px;flex-wrap:wrap;}
+  .order-line:first-of-type{border-top:none;}
+  .order-line span:first-child{color:var(--muted);}
+  .save-badge{display:inline-block;background:rgba(198,255,77,0.14);color:var(--lime);font-family:var(--mono);font-size:10px;font-weight:700;padding:2px 7px;border-radius:5px;margin-left:7px;letter-spacing:0.02em;}
+  .order-total{display:flex;justify-content:space-between;align-items:baseline;padding-top:16px;margin-top:6px;border-top:1px solid var(--line);flex-wrap:wrap;gap:8px;}
+  .order-total .lbl{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:0.04em;text-transform:uppercase;}
+  .order-total .amt{font-family:var(--display);font-weight:900;font-size:clamp(26px,7vw,32px);background:linear-gradient(135deg, var(--cyan), var(--violet));-webkit-background-clip:text;background-clip:text;color:transparent;white-space:nowrap;}
+  .order-feats{margin-top:22px;display:flex;flex-direction:column;gap:2px;}
+  .order-feats li{list-style:none;display:flex;align-items:center;gap:11px;padding:8px 0;font-size:13px;color:var(--muted);}
+  .order-feats li .fi{width:26px;height:26px;border-radius:8px;background:rgba(63,224,208,0.12);color:var(--cyan);display:flex;align-items:center;justify-content:center;font-size:12.5px;flex-shrink:0;}
+  .trust-badges{margin-top:22px;padding-top:18px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:10px;}
+  .trust-badges .tb{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;color:var(--muted);line-height:1.4;}
+  .trust-badges .tb .ic{width:22px;height:22px;border-radius:50%;background:rgba(168,107,255,0.14);color:var(--violet);display:flex;align-items:center;justify-content:center;font-size:11px;flex-shrink:0;}
+
+  /* ---- Payment methods ---- */
+  .pay-methods{margin-bottom:0;}
+  .step-head{display:flex;align-items:center;gap:14px;margin-bottom:6px;}
+  .step-num{width:38px;height:38px;border-radius:50%;background:var(--bg-2);border:2px solid var(--line);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:800;font-size:15px;color:var(--muted);flex-shrink:0;}
+  .step-head.done .step-num{background:linear-gradient(135deg, var(--cyan), var(--violet));border-color:transparent;color:#08080B;}
+  .light-zone .step-num{background:#FFFFFF;border-color:rgba(20,22,27,0.14);color:#5B6270;}
+  .step-connector{width:2px;height:26px;margin:0 0 0 18px;background:repeating-linear-gradient(180deg, var(--violet) 0 4px, transparent 4px 9px);opacity:0.55;}
+  .pay-methods h2, .enroll-form h2{font-family:var(--display);font-weight:800;font-size:clamp(17px,4.4vw,20px);}
+  .pay-methods .hint, .enroll-form .hint{color:var(--muted);font-size:13.5px;margin-bottom:20px;margin-left:52px;}
+  @media(max-width:400px){.pay-methods .hint, .enroll-form .hint{margin-left:0;}}
+  .pay-tabs{display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap;}
+  .pay-tab{font-family:var(--display);font-size:12.5px;font-weight:700;padding:11px 16px;border-radius:8px;border:1px solid var(--line);color:var(--muted);cursor:pointer;background:var(--bg-2);transition:all .18s ease;flex:1 1 auto;min-height:44px;white-space:nowrap;}
+  .pay-tab.active{background:var(--lime);color:#08080B;border-color:var(--lime);}
+  .pay-tab[data-tab="bank"].active{background:linear-gradient(135deg,#4E86F7,#1A4FC4);border-color:transparent;color:#fff;}
+  .pay-tab[data-tab="easypaisa"].active{background:#17A34E;border-color:#17A34E;color:#fff;}
+  .pay-tab[data-tab="jazzcash"].active{background:#E8811A;border-color:#E8811A;color:#fff;}
+  .tab-dot{width:8px;height:8px;border-radius:50%;display:inline-block;margin-right:6px;vertical-align:middle;flex-shrink:0;}
+  .pay-tab:hover:not(.active){border-color:rgba(255,255,255,0.28);color:var(--white);}
+  @media(max-width:520px){.pay-tabs{gap:7px;}.pay-tab{flex:1 1 calc(33.333% - 5px);padding:9px 4px;font-size:10.5px;text-align:center;white-space:normal;line-height:1.25;}}
+  .pay-panel{display:none;background:var(--bg-2);border:1px solid var(--line);border-radius:14px;padding:22px 24px;border-left:3px solid var(--line);transition:box-shadow .2s ease;}
+  .pay-panel.active{display:block;}
+  .pay-panel.active:hover{box-shadow:0 10px 26px -18px rgba(0,0,0,0.5);}
+  #panel-bank.active{border-left-color:#1A4FC4;}
+  #panel-easypaisa.active{border-left-color:#17A34E;}
+  #panel-jazzcash.active{border-left-color:#E8811A;}
+  @media(max-width:480px){.pay-panel{padding:18px 16px;border-radius:12px;}}
+  .pay-panel .method-name{font-family:var(--display);font-weight:800;font-size:15.5px;margin-bottom:14px;display:flex;align-items:center;gap:10px;}
+  .pay-panel .method-name .ic{height:30px;min-width:30px;padding:0 6px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:11px;font-weight:900;letter-spacing:0.01em;flex-shrink:0;}
+  .ic-bank{background:linear-gradient(135deg,#4E86F7,#1A4FC4);color:#fff;}
+  .ic-easypaisa{background:#17A34E;color:#fff;}
+  .ic-jazzcash{background:#E8811A;color:#fff;}
+  .detail-row{display:flex;justify-content:space-between;align-items:center;padding:11px 0;border-top:1px solid var(--line);font-size:13.5px;gap:10px;flex-wrap:wrap;}
+  .detail-row:first-of-type{border-top:none;}
+  .detail-row .k{color:var(--muted);font-family:var(--mono);font-size:11.5px;text-transform:uppercase;letter-spacing:0.03em;flex-shrink:0;}
+  .detail-row .v{font-family:var(--mono-num);font-weight:700;font-size:14.5px;letter-spacing:0.02em;text-align:right;word-break:break-word;flex:1 1 auto;min-width:0;background:rgba(255,255,255,0.04);padding:5px 10px;border-radius:6px;}
+  .copy-btn{font-family:var(--mono);font-size:10px;color:var(--violet);border:1px solid var(--line);padding:6px 9px;border-radius:5px;cursor:pointer;background:transparent;flex-shrink:0;margin-left:8px;min-height:30px;}
+  .copy-btn:hover{border-color:var(--violet);}
+  .copy-btn.copied{color:var(--lime);border-color:var(--lime);}
+  @media(max-width:380px){
+    .detail-row{flex-direction:column;align-items:flex-start;gap:6px;padding:12px 0;}
+    .detail-row .v{text-align:left;width:100%;font-size:13px;}
+    .copy-btn{margin-left:0;}
+  }
+
+  /* ---- Form ---- */
+  .enroll-form{background:var(--bg-2);border:1px solid var(--line);border-radius:16px;padding:30px;}
+  @media(max-width:480px){.enroll-form{padding:22px 18px;border-radius:14px;}}
+  .field{margin-bottom:18px;}
+  .field label{display:block;font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:0.03em;text-transform:uppercase;margin-bottom:8px;}
+  .field input[type=text], .field input[type=email], .field input[type=tel], .field select{
+    width:100%;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:14px;
+    color:var(--white);font-family:var(--body);font-size:16px;transition:border-color .18s ease, box-shadow .18s ease;min-height:48px;
+  }
+  .field input:focus, .field select:focus{outline:none;border-color:var(--violet);box-shadow:0 0 0 3px rgba(168,107,255,0.18);}
+  .field select{-webkit-appearance:none;-moz-appearance:none;appearance:none;background-image:url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%238A8F9C'%3E%3Cpath fill-rule='evenodd' d='M5.23 7.21a.75.75 0 011.06.02L10 11.19l3.71-3.96a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z' clip-rule='evenodd'/%3E%3C/svg%3E") !important;background-repeat:no-repeat !important;background-position:right 14px center !important;background-size:16px !important;padding-right:40px;cursor:pointer;}
+  .field select::-ms-expand{display:none;}
+  .file-drop{
+    border:1.5px dashed var(--line);border-radius:10px;padding:26px 16px;text-align:center;cursor:pointer;
+    transition:border-color .18s ease, background .18s ease;position:relative;background:var(--bg);
+  }
+  .file-drop:hover{border-color:var(--violet);}
+  .file-drop input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;}
+  .file-drop .ic{font-size:22px;margin-bottom:8px;}
+  .file-drop .txt{font-family:var(--display);font-size:13.5px;font-weight:700;margin-bottom:4px;}
+  .file-drop .sub{font-family:var(--mono);font-size:10.5px;color:var(--muted);}
+  .file-drop.has-file{border-color:var(--lime);border-style:solid;background:rgba(198,255,77,0.05);}
+  .file-drop .filename{font-family:var(--mono);font-size:11.5px;color:var(--lime);margin-top:6px;word-break:break-all;}
+  @media(max-width:480px){.file-drop{padding:20px 14px;}}
+  .submit-btn{
+    width:100%;background:var(--lime);color:#08080B;padding:17px 30px;border-radius:8px;
+    font-family:var(--display);font-weight:800;font-size:15px;border:1px solid var(--lime);
+    display:flex;align-items:center;justify-content:center;gap:8px;cursor:pointer;transition:all .18s ease;margin-top:6px;min-height:52px;
+  }
+  .submit-btn:hover{background:transparent;color:var(--lime);box-shadow:0 0 0 3px rgba(198,255,77,0.15);}
+  .submit-btn:active{transform:scale(0.98);}
+  .form-note{font-family:var(--mono);font-size:11px;color:var(--muted);text-align:center;margin-top:14px;display:flex;align-items:center;justify-content:center;gap:6px;line-height:1.5;}
+
+  /* ---- Light zone overrides ---- */
+  .light-zone .order-card{background:#FFFFFF;border-color:rgba(20,22,27,0.10);box-shadow:0 1px 2px rgba(20,22,27,0.04);}
+  .light-zone .order-card h3{color:#14161B;}
+  .light-zone .order-card .sub{color:#5B6270;}
+  .light-zone .order-line{border-color:rgba(20,22,27,0.10);}
+  .light-zone .order-line span:first-child{color:#5B6270;}
+  .light-zone .order-line span:last-child{color:#14161B;}
+  .light-zone .order-total{border-color:rgba(20,22,27,0.10);}
+  .light-zone .order-total .lbl{color:#5B6270;}
+  .light-zone .order-feats li{color:#5B6270;}
+  .light-zone .trust-badges{border-color:rgba(20,22,27,0.10);}
+  .light-zone .trust-badges .tb{color:#5B6270;}
+
+  .light-zone .pay-methods h2, .light-zone .enroll-form h2{color:#14161B;}
+  .light-zone .pay-methods .hint, .light-zone .enroll-form .hint{color:#5B6270;}
+  .light-zone .pay-tab{background:#FFFFFF;border-color:rgba(20,22,27,0.12);color:#5B6270;}
+  .light-zone .pay-tab.active{background:var(--lime);color:#08080B;border-color:var(--lime);}
+  .light-zone .pay-tab[data-tab="bank"].active{background:linear-gradient(135deg,#4E86F7,#1A4FC4);border-color:transparent;color:#fff;}
+  .light-zone .pay-tab[data-tab="easypaisa"].active{background:#17A34E;border-color:#17A34E;color:#fff;}
+  .light-zone .pay-tab[data-tab="jazzcash"].active{background:#E8811A;border-color:#E8811A;color:#fff;}
+  .light-zone .pay-panel{background:#FFFFFF;border-color:rgba(20,22,27,0.10);box-shadow:0 1px 2px rgba(20,22,27,0.04);}
+  .light-zone .pay-panel .method-name{color:#14161B;}
+  .light-zone .detail-row{border-color:rgba(20,22,27,0.10);}
+  .light-zone .detail-row .k{color:#8A93A6;}
+  .light-zone .detail-row .v{color:#14161B;background:rgba(20,22,27,0.045);}
+  .light-zone .copy-btn{border-color:rgba(20,22,27,0.15);color:#6A3FD6;}
+  .light-zone .copy-btn:hover{border-color:#6A3FD6;}
+  .light-zone .copy-btn.copied{color:#5C7A1A;border-color:#5C7A1A;}
+
+  .light-zone .enroll-form{background:#FFFFFF;border-color:rgba(20,22,27,0.10);box-shadow:0 1px 2px rgba(20,22,27,0.04);}
+  .light-zone .field label{color:#8A93A6;}
+  .light-zone .field input[type=text], .light-zone .field input[type=email], .light-zone .field input[type=tel], .light-zone .field select{
+    background:#F7F8F6;border-color:rgba(20,22,27,0.14);color:#14161B;
+  }
+  .light-zone .field select{background-image:url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%235B6270'%3E%3Cpath fill-rule='evenodd' d='M5.23 7.21a.75.75 0 011.06.02L10 11.19l3.71-3.96a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z' clip-rule='evenodd'/%3E%3C/svg%3E") !important;background-repeat:no-repeat !important;background-position:right 14px center !important;background-size:16px !important;}
+  .light-zone .file-drop{background:#F7F8F6;border-color:rgba(20,22,27,0.16);}
+  .light-zone .file-drop .txt{color:#14161B;}
+  .light-zone .file-drop .sub{color:#8A93A6;}
+  .light-zone .form-note{color:#8A93A6;}
+
+  footer{position:relative;padding:52px 24px 26px;font-family:var(--mono);font-size:12px;color:var(--muted);border-top:1px solid var(--line);background:var(--bg-2);overflow:hidden;}
+  footer::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg, var(--cyan), var(--violet), var(--lime));}
+  .footer-top{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:36px;padding-bottom:32px;border-bottom:1px solid var(--line);}
+  @media(max-width:750px){.footer-top{grid-template-columns:1fr 1fr;}}
+  @media(max-width:520px){.footer-top{grid-template-columns:1fr;gap:28px;}}
+  .footer-brand .logo{margin-bottom:12px;}
+  .footer-brand p{font-family:var(--body);font-size:13px;color:var(--muted);line-height:1.6;max-width:280px;margin-bottom:18px;}
+  .footer-social{display:flex;gap:10px;}
+  .footer-social a{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:all .18s ease;box-shadow:0 4px 14px -6px rgba(0,0,0,0.4);}
+  .footer-social a svg{width:18px;height:18px;fill:#fff;}
+  .footer-social a:hover{transform:translateY(-3px) scale(1.06);}
+  .footer-social .ig{background:radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);}
+  .footer-social .yt{background:#FF0000;}
+  .footer-social .tt{background:#000000;border:1px solid rgba(255,255,255,0.15);}
+  .footer-social .tg{background:#229ED9;}
+  .footer-col h4{font-family:var(--display);font-weight:800;font-size:12px;color:var(--white);letter-spacing:0.04em;text-transform:uppercase;margin-bottom:16px;}
+  .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:11px;}
+  .footer-col a{font-family:var(--body);font-size:13.5px;color:var(--muted);transition:color .18s ease;}
+  .footer-col a:hover{color:var(--cyan);}
+  .footer-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:center;flex-wrap:wrap;gap:12px;padding:22px 0 0;}
+  .footer-inner a:hover{color:var(--cyan);text-decoration:underline;}
+  .disclaimer{max-width:1100px;margin:16px auto 0;font-size:11px;color:#5b5f6a;line-height:1.7;}
+  @media(max-width:520px){.footer-inner{flex-direction:column;gap:8px;}}
+  footer .logo{color:var(--white);}
+
+  /* ---- Mobile sticky total bar ---- */
+  .pay-methods{scroll-margin-top:88px;}
+  .mobile-total-bar{position:fixed;bottom:0;left:0;right:0;z-index:60;display:none;align-items:center;justify-content:space-between;gap:14px;background:rgba(16,16,20,0.96);backdrop-filter:blur(10px);border-top:1px solid var(--line);padding:12px 18px;padding-bottom:calc(12px + env(safe-area-inset-bottom));}
+  .mobile-total-bar .lbl-mini{display:block;font-family:var(--mono);font-size:9.5px;color:var(--muted);text-transform:uppercase;letter-spacing:0.04em;}
+  .mobile-total-bar .amt-mini{font-family:var(--display);font-weight:900;font-size:18px;background:linear-gradient(135deg, var(--cyan), var(--violet));-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .mobile-total-bar .bar-cta{background:var(--lime);color:#08080B;font-family:var(--display);font-weight:800;font-size:13px;padding:12px 20px;border-radius:8px;white-space:nowrap;flex-shrink:0;}
+  @media(max-width:900px){.mobile-total-bar{display:flex;}main{padding-bottom:100px;}}
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="index.html" class="logo"><span class="dot"></span>FOREX HUNK</a>
+    <a href="index.html" class="back-link">← Back to Course</a>
+  </nav>
+</header>
+
+<div class="ticker-bar">
+  <div class="ticker-track">
+    <span class="pair"><b>EUR/USD</b> 1.0847 <span class="up">▲ 0.24%</span></span>
+    <span class="pair"><b>GBP/USD</b> 1.2694 <span class="down">▼ 0.12%</span></span>
+    <span class="pair"><b>BTC/USD</b> 68,240 <span class="up">▲ 2.41%</span></span>
+    <span class="pair"><b>XAU/USD</b> 2,412.6 <span class="up">▲ 0.58%</span></span>
+    <span class="pair"><b>USD/JPY</b> 151.32 <span class="down">▼ 0.09%</span></span>
+    <span class="pair"><b>ETH/USD</b> 3,184 <span class="up">▲ 1.87%</span></span>
+    <span class="pair"><b>EUR/USD</b> 1.0847 <span class="up">▲ 0.24%</span></span>
+    <span class="pair"><b>GBP/USD</b> 1.2694 <span class="down">▼ 0.12%</span></span>
+    <span class="pair"><b>BTC/USD</b> 68,240 <span class="up">▲ 2.41%</span></span>
+    <span class="pair"><b>XAU/USD</b> 2,412.6 <span class="up">▲ 0.58%</span></span>
+    <span class="pair"><b>USD/JPY</b> 151.32 <span class="down">▼ 0.09%</span></span>
+    <span class="pair"><b>ETH/USD</b> 3,184 <span class="up">▲ 1.87%</span></span>
+  </div>
+</div>
+
+<div class="page-head">
+  <div class="glow1"></div><div class="glow2"></div>
+  <div class="page-head-frame">
+    <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+    <div class="eyebrow">Secure Enrollment</div>
+    <h1>Complete Your <span class="grad">Enrollment</span></h1>
+    <p>Pay via Bank Transfer, EasyPaisa, or JazzCash — then fill the form below with your payment screenshot to confirm your seat.</p>
+  </div>
+</div>
+
+<main class="light-zone">
+  <div class="wrap checkout-grid">
+
+    <!-- Order Summary -->
+    <div class="order-card reveal-in">
+      <span class="badge">🔥 LIMITED SEATS</span>
+      <h3>Forex Hunk — 5 Strategies</h3>
+      <div class="sub">FULL COURSE ACCESS · LIFETIME</div>
+      <div class="order-line"><span>Course price</span><span>PKR 12,999</span></div>
+      <div class="order-line"><span>Launch discount</span><span style="color:var(--lime);">− PKR 8,000 <span class="save-badge">-62%</span></span></div>
+      <div class="order-total">
+        <span class="lbl">Total Due</span>
+        <span class="amt">PKR 4,999</span>
+      </div>
+      <ul class="order-feats">
+        <li><span class="fi">📈</span> All 5 trading strategies, forex + crypto</li>
+        <li><span class="fi">🎥</span> Step-by-step video modules</li>
+        <li><span class="fi">💬</span> Private student community access</li>
+        <li><span class="fi">♾️</span> Lifetime access + future updates</li>
+      </ul>
+      <div class="trust-badges">
+        <div class="tb"><span class="ic">🔒</span> Manual payment verification · access within 24 hours</div>
+        <div class="tb"><span class="ic">🛡️</span> 7-day money-back guarantee, no questions asked</div>
+      </div>
+    </div>
+
+    <!-- Payment Methods + Form -->
+    <div>
+      <div class="pay-methods reveal-in" id="pay-methods" style="animation-delay:.08s;">
+        <div class="step-head"><span class="step-num">1</span><h2>Send Payment</h2></div>
+        <p class="hint">Choose a payment method below and transfer PKR 4,999. Keep the screenshot ready for Step 2.</p>
+        <div class="pay-tabs">
+          <button type="button" class="pay-tab active" data-tab="bank"><span class="tab-dot" style="background:linear-gradient(135deg,#4E86F7,#1A4FC4);"></span>Bank Transfer</button>
+          <button type="button" class="pay-tab" data-tab="easypaisa"><span class="tab-dot" style="background:#17A34E;"></span>EasyPaisa</button>
+          <button type="button" class="pay-tab" data-tab="jazzcash"><span class="tab-dot" style="background:#E8811A;"></span>JazzCash</button>
+        </div>
+
+        <div class="pay-panel active" id="panel-bank">
+          <div class="method-name"><span class="ic ic-bank">UBL</span> Bank Transfer</div>
+          <div class="detail-row"><span class="k">Bank Name</span><span class="v">United Bank Limited (UBL)</span></div>
+          <div class="detail-row"><span class="k">Account Title</span><span class="v">Sufian Ahmad</span></div>
+          <div class="detail-row"><span class="k">Account Number</span><span class="v" id="bank-acc">00995336620035</span><button type="button" class="copy-btn" data-copy="bank-acc">COPY</button></div>
+          <div class="detail-row"><span class="k">IBAN</span><span class="v" id="bank-iban">PK35UNIL0109000336620035</span><button type="button" class="copy-btn" data-copy="bank-iban">COPY</button></div>
+        </div>
+
+        <div class="pay-panel" id="panel-easypaisa">
+          <div class="method-name"><span class="ic ic-easypaisa">EP</span> EasyPaisa</div>
+          <div class="detail-row"><span class="k">Account Title</span><span class="v">Sufian Ahmad</span></div>
+          <div class="detail-row"><span class="k">EasyPaisa Number</span><span class="v" id="ep-num">0302-7343165</span><button type="button" class="copy-btn" data-copy="ep-num">COPY</button></div>
+          <div class="detail-row"><span class="k">Amount</span><span class="v">PKR 4,999</span></div>
+        </div>
+
+        <div class="pay-panel" id="panel-jazzcash">
+          <div class="method-name"><span class="ic ic-jazzcash">JC</span> JazzCash</div>
+          <div class="detail-row"><span class="k">Account Title</span><span class="v">Sufian Ahmad</span></div>
+          <div class="detail-row"><span class="k">JazzCash Number</span><span class="v" id="jc-num">0300-4540431</span><button type="button" class="copy-btn" data-copy="jc-num">COPY</button></div>
+          <div class="detail-row"><span class="k">Amount</span><span class="v">PKR 4,999</span></div>
+        </div>
+      </div>
+
+      <div class="step-connector"></div>
+
+      <!-- IMPORTANT: replace YOUREMAIL@example.com below with your real email so submissions reach you (via FormSubmit.co, free, no backend needed) -->
+      <form class="enroll-form reveal-in" style="animation-delay:.16s;" action="https://formsubmit.co/forexhunk.info@gmail.com" method="POST" enctype="multipart/form-data">
+        <div class="step-head"><span class="step-num">2</span><h2>Confirm Your Enrollment</h2></div>
+        <p class="hint">Fill in your details and attach the payment screenshot.</p>
+
+        <input type="hidden" name="_subject" value="New Forex Hunk Enrollment">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="https://www.forexhunk.com/forex-hunk-thankyou.html">
+
+        <div class="field">
+          <label>Full Name</label>
+          <input type="text" name="Full Name" placeholder="Your full name" required>
+        </div>
+        <div class="field">
+          <label>Email Address</label>
+          <input type="email" name="Email" placeholder="you@example.com" required>
+        </div>
+        <div class="field">
+          <label>WhatsApp / Phone Number</label>
+          <input type="tel" name="Phone" placeholder="03XX-XXXXXXX" required>
+        </div>
+        <div class="field">
+          <label>Payment Method Used</label>
+          <select name="Payment Method" required>
+            <option value="" disabled selected>Select payment method</option>
+            <option value="Bank Transfer">Bank Transfer</option>
+            <option value="EasyPaisa">EasyPaisa</option>
+            <option value="JazzCash">JazzCash</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Transaction ID / Reference (optional)</label>
+          <input type="text" name="Transaction ID" placeholder="e.g. TRX123456789">
+        </div>
+        <div class="field">
+          <label>Payment Screenshot</label>
+          <div class="file-drop" id="fileDrop">
+            <input type="file" name="Payment Screenshot" accept="image/*" required id="fileInput">
+            <div class="ic">📎</div>
+            <div class="txt">Click to upload screenshot</div>
+            <div class="sub">PNG or JPG, max 5MB</div>
+            <div class="filename" id="fileName"></div>
+          </div>
+        </div>
+
+        <button type="submit" class="submit-btn">Submit Enrollment →</button>
+        <div class="form-note">🔒 Your details are used only to verify your enrollment</div>
+      </form>
+    </div>
+  </div>
+</main>
+
+<div class="mobile-total-bar">
+  <div><span class="lbl-mini">Total Due</span><span class="amt-mini">PKR 4,999</span></div>
+  <a href="#pay-methods" class="bar-cta">Pay Now →</a>
+</div>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="index.html" class="logo"><span class="dot"></span>FOREX HUNK</a>
+      <p>Rule-based forex &amp; crypto trading strategies — taught the way institutions actually trade. No signals, no shortcuts.</p>
+      <div class="footer-social">
+        <a class="ig" href="https://www.instagram.com/forexhunk/" title="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+        <a class="yt" href="https://www.youtube.com/@forexhunk" title="YouTube" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+        <a class="tt" href="https://www.tiktok.com/@forexhunk" title="TikTok" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
+        <a class="tg" href="https://t.me/forexhunk" title="Telegram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M23.91 3.79 20.3 20.84c-.25 1.21-.98 1.5-2 .94l-5.5-4.07-2.66 2.57c-.3.3-.55.56-1.12.56l.4-5.66 10.3-9.33c.45-.4-.1-.62-.7-.22L7.06 12.16l-5.5-1.72c-1.2-.37-1.21-1.2.25-1.78l21.4-8.28c1-.36 1.87.24 1.7 1.4z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Course</h4>
+      <ul>
+        <li><a href="index.html#strategies">5 Strategies</a></li>
+        <li><a href="index.html#mentor">Meet the Mentor</a></li>
+        <li><a href="index.html#pricing">Pricing</a></li>
+        <li><a href="index.html#faq">FAQs</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Support</h4>
+      <ul>
+        <li><a href="mailto:forexhunk.info@gmail.com">Contact Us</a></li>
+        <li><a href="#pay-methods">Payment Methods</a></li>
+        <li><a href="index.html">Back to Course</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-inner">
+    <span>© 2026 FOREX HUNK</span>
+  </div>
+  <div class="disclaimer">Trading forex and cryptocurrency involves substantial risk of loss and is not suitable for every investor. Past results shown are illustrative and do not guarantee future performance. This course is for educational purposes only and does not constitute financial advice.</div>
+</footer>
+
+<script>
+  // Tab switching
+  document.querySelectorAll('.pay-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.pay-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.pay-panel').forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById('panel-' + tab.dataset.tab).classList.add('active');
+    });
+  });
+
+  // Copy buttons
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const text = document.getElementById(btn.dataset.copy).textContent;
+      navigator.clipboard.writeText(text).then(() => {
+        btn.textContent = 'COPIED';
+        btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = 'COPY'; btn.classList.remove('copied'); }, 1500);
+      });
+    });
+  });
+
+  // File input feedback
+  const fileInput = document.getElementById('fileInput');
+  const fileDrop = document.getElementById('fileDrop');
+  const fileName = document.getElementById('fileName');
+  fileInput.addEventListener('change', () => {
+    if(fileInput.files.length > 0){
+      fileDrop.classList.add('has-file');
+      fileName.textContent = '✓ ' + fileInput.files[0].name;
+      const icEl = fileDrop.querySelector('.ic');
+      if(icEl) icEl.textContent = '✅';
+    }
+  });
+</script>
+
+</body>
+</html>
